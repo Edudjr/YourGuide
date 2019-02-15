@@ -4,7 +4,7 @@
 //
 //  Created by João D. Moreira on 30/08/16.
 //
-//  Copyright (c) 2018 Wei Wang <onevcat@gmail.com>
+//  Copyright (c) 2017 Wei Wang <onevcat@gmail.com>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -86,7 +86,7 @@ extension Indicator {
 
 // MARK: - ActivityIndicator
 // Displays a NSProgressIndicator / UIActivityIndicatorView
-final class ActivityIndicator: Indicator {
+class ActivityIndicator: Indicator {
 
     #if os(macOS)
     private let activityIndicatorView: NSProgressIndicator
@@ -101,7 +101,7 @@ final class ActivityIndicator: Indicator {
 
     func startAnimatingView() {
         animatingCount += 1
-        // Already animating
+        // Alrady animating
         if animatingCount == 1 {
             #if os(macOS)
                 activityIndicatorView.startAnimation(nil)
@@ -131,15 +131,11 @@ final class ActivityIndicator: Indicator {
             activityIndicatorView.style = .spinning
         #else
             #if os(tvOS)
-                let indicatorStyle = UIActivityIndicatorView.Style.white
+                let indicatorStyle = UIActivityIndicatorViewStyle.white
             #else
-                let indicatorStyle = UIActivityIndicatorView.Style.gray
+                let indicatorStyle = UIActivityIndicatorViewStyle.gray
             #endif
-        #if swift(>=4.2)
-            activityIndicatorView = UIActivityIndicatorView(style: indicatorStyle)
-        #else
-            activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: indicatorStyle)
-        #endif
+            activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle:indicatorStyle)
             activityIndicatorView.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin, .flexibleBottomMargin, .flexibleTopMargin]
         #endif
     }
@@ -147,7 +143,7 @@ final class ActivityIndicator: Indicator {
 
 // MARK: - ImageIndicator
 // Displays an ImageView. Supports gif
-final class ImageIndicator: Indicator {
+class ImageIndicator: Indicator {
     private let animatedImageIndicatorView: ImageView
 
     var view: IndicatorView {
