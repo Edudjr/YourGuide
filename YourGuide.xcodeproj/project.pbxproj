@@ -13,6 +13,7 @@
 		2896100F221667FA006D0A9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2896100E221667FA006D0A9A /* Assets.xcassets */; };
 		28961012221667FA006D0A9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28961010221667FA006D0A9A /* LaunchScreen.storyboard */; };
 		2896101D221667FB006D0A9A /* YourGuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2896101C221667FB006D0A9A /* YourGuideTests.swift */; };
+		62FD8506F9BBECE97FEC4643 /* Pods_YourGuide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA05C5C7B89D208B5A09F6A /* Pods_YourGuide.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,9 @@
 		28961018221667FB006D0A9A /* YourGuideTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YourGuideTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2896101C221667FB006D0A9A /* YourGuideTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourGuideTests.swift; sourceTree = "<group>"; };
 		2896101E221667FB006D0A9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BDF53A816304E2C77BFBF84 /* Pods-YourGuide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YourGuide.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YourGuide/Pods-YourGuide.debug.xcconfig"; sourceTree = "<group>"; };
+		5FA05C5C7B89D208B5A09F6A /* Pods_YourGuide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YourGuide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B79448BB95A7F6B3206EBDE /* Pods-YourGuide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YourGuide.release.xcconfig"; path = "Pods/Target Support Files/Pods-YourGuide/Pods-YourGuide.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62FD8506F9BBECE97FEC4643 /* Pods_YourGuide.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +61,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2263815585C5AA63B1AB777D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4BDF53A816304E2C77BFBF84 /* Pods-YourGuide.debug.xcconfig */,
+				8B79448BB95A7F6B3206EBDE /* Pods-YourGuide.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		28960FFB221667F7006D0A9A = {
 			isa = PBXGroup;
 			children = (
 				28961006221667F7006D0A9A /* YourGuide */,
 				2896101B221667FB006D0A9A /* YourGuideTests */,
 				28961005221667F7006D0A9A /* Products */,
+				2263815585C5AA63B1AB777D /* Pods */,
+				5D7307D097E4A2CC925225D8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +112,14 @@
 			path = YourGuideTests;
 			sourceTree = "<group>";
 		};
+		5D7307D097E4A2CC925225D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5FA05C5C7B89D208B5A09F6A /* Pods_YourGuide.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +127,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 28961021221667FB006D0A9A /* Build configuration list for PBXNativeTarget "YourGuide" */;
 			buildPhases = (
+				5029834E66ED78387E81AF22 /* [CP] Check Pods Manifest.lock */,
 				28961000221667F7006D0A9A /* Sources */,
 				28961001221667F7006D0A9A /* Frameworks */,
 				28961002221667F7006D0A9A /* Resources */,
+				62EE9582D867BFB7C518E72C /* [CP] Embed Pods Frameworks */,
+				79C2E707B51143B9C41A82A8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -191,6 +218,68 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5029834E66ED78387E81AF22 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YourGuide-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		62EE9582D867BFB7C518E72C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-YourGuide/Pods-YourGuide-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Marshal/Marshal.framework",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+				"${BUILT_PRODUCTS_DIR}/SwinjectStoryboard/SwinjectStoryboard.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Marshal.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwinjectStoryboard.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YourGuide/Pods-YourGuide-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		79C2E707B51143B9C41A82A8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YourGuide/Pods-YourGuide-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		28961000221667F7006D0A9A /* Sources */ = {
@@ -356,15 +445,13 @@
 		};
 		28961022221667FB006D0A9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BDF53A816304E2C77BFBF84 /* Pods-YourGuide.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6RDBHT79U2;
 				INFOPLIST_FILE = YourGuide/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.edudjr.YourGuide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -374,15 +461,13 @@
 		};
 		28961023221667FB006D0A9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B79448BB95A7F6B3206EBDE /* Pods-YourGuide.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6RDBHT79U2;
 				INFOPLIST_FILE = YourGuide/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.edudjr.YourGuide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -398,11 +483,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6RDBHT79U2;
 				INFOPLIST_FILE = YourGuideTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.edudjr.YourGuideTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -419,11 +500,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6RDBHT79U2;
 				INFOPLIST_FILE = YourGuideTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.edudjr.YourGuideTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

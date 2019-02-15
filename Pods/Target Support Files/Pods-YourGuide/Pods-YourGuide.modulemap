@@ -1,0 +1,6 @@
+framework module Pods_YourGuide {
+  umbrella header "Pods-YourGuide-umbrella.h"
+
+  export *
+  module * { export * }
+}
