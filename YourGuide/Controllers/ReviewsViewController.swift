@@ -10,7 +10,9 @@ import UIKit
 
 class ReviewsViewController: UIViewController {
     
-    var reviewsViewModel: ReviewsViewModel?
+    @IBOutlet weak var tableView: UITableView!
+    
+    var reviewsViewModel: ReviewsViewModelProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +24,28 @@ class ReviewsViewController: UIViewController {
         
         setupListeners()
         reviewsViewModel?.getMoreReviews()
+        
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     func setupListeners() {
-        reviewsViewModel?.onReviewItemViewModels = { items in
-            print(items)
+        reviewsViewModel?.onReviewItemViewModels = { [weak self] items in
+            self?.tableView.reloadData()
         }
     }
 }
 
+extension ReviewsViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return reviewsViewModel?.reviewItemViewModels.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reviewCell", for: indexPath) as! ReviewItemCell
+        if let model = reviewsViewModel?.reviewItemViewModels[indexPath.row] {
+            cell.configureWith(model)
+        }
+        return cell
+    }
+}

@@ -10,17 +10,22 @@ protocol ReviewsViewModelProtocol {
     var onTotalComments: ((_ total: Int) -> Void)? { get set }
     var onReviewItemViewModels: ((_ items: [ReviewItemViewModel]) -> Void)? { get set }
     var onError: ((_ error: YourGuideError) -> Void)? { get set }
+    var reviewItemViewModels: [ReviewItemViewModel] { get set }
     func getMoreReviews()
-    func applyFilters()
+    func applyFilters(direction: APIParameters.Direction)
 }
 
-class ReviewsViewModel {
+class ReviewsViewModel: ReviewsViewModelProtocol {
     var currentPage = 0
     var count = 20
     var direction = APIParameters.Direction.desc
     
     var totalComments = 0
-    var reviewItemViewModels = [ReviewItemViewModel]()
+    var reviewItemViewModels = [ReviewItemViewModel]() {
+        didSet {
+            onReviewItemViewModels?(reviewItemViewModels)
+        }
+    }
     
     //Listeners
     var onTotalComments: ((_ total: Int) -> Void)?
@@ -48,7 +53,6 @@ class ReviewsViewModel {
                     let temp = ReviewItemViewModel(author: item.author, comment: item.message, country: item.reviewerCountry)
                     self?.reviewItemViewModels.append(temp)
                 })
-                self?.onReviewItemViewModels?(self?.reviewItemViewModels ?? [])
             }
         })
         currentPage += 1
