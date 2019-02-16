@@ -25,6 +25,7 @@
 		28BD792422178718007894C4 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD792322178718007894C4 /* RadioButton.swift */; };
 		28BD79262217A6DA007894C4 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD79252217A6DA007894C4 /* FilterViewController.swift */; };
 		28BD79282217A97B007894C4 /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD79272217A97B007894C4 /* FilterViewModel.swift */; };
+		28BD792D2217D1F7007894C4 /* SwinjectStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD792C2217D1F7007894C4 /* SwinjectStoryboard+Extension.swift */; };
 		62FD8506F9BBECE97FEC4643 /* Pods_YourGuide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA05C5C7B89D208B5A09F6A /* Pods_YourGuide.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		28BD792322178718007894C4 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		28BD79252217A6DA007894C4 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		28BD79272217A97B007894C4 /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
+		28BD792C2217D1F7007894C4 /* SwinjectStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		4BDF53A816304E2C77BFBF84 /* Pods-YourGuide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YourGuide.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YourGuide/Pods-YourGuide.debug.xcconfig"; sourceTree = "<group>"; };
 		5FA05C5C7B89D208B5A09F6A /* Pods_YourGuide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YourGuide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B79448BB95A7F6B3206EBDE /* Pods-YourGuide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YourGuide.release.xcconfig"; path = "Pods/Target Support Files/Pods-YourGuide/Pods-YourGuide.release.xcconfig"; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 		28961006221667F7006D0A9A /* YourGuide */ = {
 			isa = PBXGroup;
 			children = (
+				28BD79292217CEDC007894C4 /* Extensions */,
 				28BD7917221680E4007894C4 /* Views */,
 				28BD791222167AA9007894C4 /* Models */,
 				28BD791A2216819F007894C4 /* ViewModels */,
@@ -210,6 +213,14 @@
 				28BD79272217A97B007894C4 /* FilterViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		28BD79292217CEDC007894C4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				28BD792C2217D1F7007894C4 /* SwinjectStoryboard+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		5D7307D097E4A2CC925225D8 /* Frameworks */ = {
@@ -388,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28BD792D2217D1F7007894C4 /* SwinjectStoryboard+Extension.swift in Sources */,
 				28BD79282217A97B007894C4 /* FilterViewModel.swift in Sources */,
 				28BD790622166AAE007894C4 /* YourGuideAPI.swift in Sources */,
 				28BD791122167425007894C4 /* APIParameters.swift in Sources */,

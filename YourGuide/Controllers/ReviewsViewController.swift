@@ -16,17 +16,6 @@ class ReviewsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //setup
-        let provider = AlamofireRequest()
-        let api = YourGuideAPI(provider: provider)
-        let filterViewModel = FilterViewModel()
-        let reviewItemViewModels = [ReviewItemViewModel]()
-            
-        reviewsViewModel = ReviewsViewModel(api: api,
-                                            filterViewModel: filterViewModel,
-                                            reviewItemViewModels: reviewItemViewModels)
-        
         setupListeners()
         reviewsViewModel?.getMoreReviews()
         
@@ -38,6 +27,15 @@ class ReviewsViewController: UIViewController {
         reviewsViewModel?.onReviewItemViewModels = { [weak self] items in
             self?.tableView.reloadData()
         }
+        reviewsViewModel?.onError = { [weak self] error in
+            self?.showErrorMessage(message: error.localizedDescription)
+        }
+    }
+    
+    func showErrorMessage(message: String) {
+        let alert = UIAlertController(title: "Oops!", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
