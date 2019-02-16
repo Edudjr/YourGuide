@@ -17,6 +17,7 @@ struct ReviewItemModel: Unmarshaling {
     var date: String?
     var isAnonymous: Bool?
     var reviewerCountry: String?
+    var ratingDouble: Double?
 }
 
 extension ReviewItemModel {
@@ -30,5 +31,6 @@ extension ReviewItemModel {
         date = try? object.value(for: "date")
         isAnonymous = try? object.value(for: "isAnonymous")
         reviewerCountry = try? object.value(for: "reviewerCountry")
+        ratingDouble = Double(rating ?? "0")
     }
 }

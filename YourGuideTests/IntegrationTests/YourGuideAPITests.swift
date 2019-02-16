@@ -26,11 +26,11 @@ class YourGuideAPITests: XCTestCase {
         super.tearDown()
     }
     
-    func testGetReviews() {
+    func testGetReviewsFullStars() {
         let exp = expectation(description: "waiting service")
         let parameters = APIParameters(count: 3,
                                     page: 0,
-                                    rating: 5,
+                                    rating: 5.0,
                                     sortBy: .date,
                                     direction: .desc)
         
@@ -40,6 +40,25 @@ class YourGuideAPITests: XCTestCase {
             XCTAssertNotNil(result?.items?.first?.date)
             XCTAssertEqual(result?.items?.count, 3)
             XCTAssertEqual(result?.items?.first?.rating, "5.0")
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: timeout)
+    }
+    
+    func testGetReviewsHalfStars() {
+        let exp = expectation(description: "waiting service")
+        let parameters = APIParameters(count: 3,
+                                       page: 0,
+                                       rating: 2.0,
+                                       sortBy: .date,
+                                       direction: .desc)
+        
+        api.getReviews(parameters: parameters) { error, result in
+            XCTAssertNil(error)
+            XCTAssertNotNil(result?.items?.first?.author)
+            XCTAssertNotNil(result?.items?.first?.date)
+            XCTAssertEqual(result?.items?.count, 3)
+            XCTAssertEqual(result?.items?.first?.rating, "2.0")
             exp.fulfill()
         }
         wait(for: [exp], timeout: timeout)

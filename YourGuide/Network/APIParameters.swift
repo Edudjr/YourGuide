@@ -17,7 +17,7 @@ struct APIParameters {
     
     var count: Int?
     var page: Int?
-    var rating: Int?
+    var rating: Double?
     var sortBy: SortBy?
     var direction: Direction?
 }

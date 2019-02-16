@@ -20,7 +20,12 @@ class ReviewsViewController: UIViewController {
         //setup
         let provider = AlamofireRequest()
         let api = YourGuideAPI(provider: provider)
-        reviewsViewModel = ReviewsViewModel(api: api)
+        let filterViewModel = FilterViewModel()
+        let reviewItemViewModels = [ReviewItemViewModel]()
+            
+        reviewsViewModel = ReviewsViewModel(api: api,
+                                            filterViewModel: filterViewModel,
+                                            reviewItemViewModels: reviewItemViewModels)
         
         setupListeners()
         reviewsViewModel?.getMoreReviews()
@@ -32,6 +37,12 @@ class ReviewsViewController: UIViewController {
     func setupListeners() {
         reviewsViewModel?.onReviewItemViewModels = { [weak self] items in
             self?.tableView.reloadData()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? FilterViewController {
+            destination.filterViewModel = reviewsViewModel?.filterViewModel
         }
     }
 }

@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.8.1)
+  - Cosmos (16.0.0)
   - Kingfisher (4.0.1)
   - Marshal (1.2.7)
   - Swinject (2.5.0)
@@ -8,6 +9,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - Cosmos (~> 16.0.0)
   - Kingfisher (~> 4.0.0)
   - Marshal (~> 1.2)
   - Swinject (~> 2.4)
@@ -15,11 +17,12 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Cosmos: 7bcee0fa858a9355a214f2a181be5dffcee42c81
   Kingfisher: b771785e9461ed4b8686d40e7145f9e58100cb24
   Marshal: ef480864a6af10a63f67be7e55bb5d8fe67a16d9
   Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
   SwinjectStoryboard: 688f096033103e66ffcf6ca678211acd7d7be505
 
-PODFILE CHECKSUM: 3ea707cd02d0336309f5e526dde9b5d3d9831c35
+PODFILE CHECKSUM: 722b53055f19e2141761294fb703a4f60d929cec
 
 COCOAPODS: 1.4.0
