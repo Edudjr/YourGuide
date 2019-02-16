@@ -49,10 +49,14 @@ class FilterViewController: UIViewController {
         }
     }
     
-    @IBAction func applyButtonTap(_ sender: Any) {
-        filterViewModel?.applyFilters()
+    func closeModal() {
         shadowedView?.removeFromSuperview()
         dismiss(animated: true)
+    }
+    
+    @IBAction func applyButtonTap(_ sender: Any) {
+        filterViewModel?.applyFilters()
+        closeModal()
     }
     
     @IBAction func removeFiltersTap(_ sender: Any) {
@@ -62,8 +66,13 @@ class FilterViewController: UIViewController {
     @IBAction func newestFirstTap(_ sender: Any) {
         filterViewModel?.newestFirstSelected = newestFirstButton.isSelected
     }
+    
     @IBAction func oldestFirstTap(_ sender: Any) {
         filterViewModel?.oldestFirstSelected = oldestFirstButton.isSelected
+    }
+    
+    @IBAction func closeButtonTap(_ sender: Any) {
+        closeModal()
     }
     
 }

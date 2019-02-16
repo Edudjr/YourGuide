@@ -11,6 +11,10 @@ import SwinjectStoryboard
 
 extension SwinjectStoryboard {
     @objc class func setup() {
+        setupProduction(defaultContainer)
+    }
+    
+    class func setupProduction(_ defaultContainer: Container) {
         defaultContainer.register(RequestProtocol.self) { _ in
             AlamofireRequest()
         }

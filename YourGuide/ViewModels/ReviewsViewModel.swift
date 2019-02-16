@@ -9,6 +9,7 @@
 protocol ReviewsViewModelProtocol {
     var onTotalComments: ((_ total: Int) -> Void)? { get set }
     var onReviewItemViewModels: ((_ items: [ReviewItemViewModelProtocol]) -> Void)? { get set }
+    var onApplyFilters: (() -> Void)? { get set }
     var onError: ((_ error: YourGuideError) -> Void)? { get set }
     var reviewItemViewModels: [ReviewItemViewModelProtocol] { get set }
     var filterViewModel: FilterViewModelProtocol { get set }
@@ -33,6 +34,7 @@ class ReviewsViewModel: ReviewsViewModelProtocol {
     //Listeners
     var onTotalComments: ((_ total: Int) -> Void)?
     var onReviewItemViewModels: ((_ items: [ReviewItemViewModelProtocol]) -> Void)?
+    var onApplyFilters: (() -> Void)?
     var onError: ((_ error: YourGuideError) -> Void)?
     
     //Dependencies
@@ -86,6 +88,7 @@ class ReviewsViewModel: ReviewsViewModelProtocol {
         self.direction = direction
         resetState()
         getMoreReviews()
+        onApplyFilters?()
     }
     
     func resetState() {
